@@ -33,7 +33,7 @@ export const LoginModal = ({showModal, setShowModal, isCloseble }) => {
                     localStorage.setItem("Terminusdb-KEY",password)
                     //localStorage.setItem("Org",organization)
                     // to be review using routing
-                    const base = process.env.BASE_URL ? `/${process.env.BASE_URL}` : ""
+                    const base = 'data' ? `/${'data'}` : ""
                     window.location.replace(`${base}`) 
                 }  
             }).catch(err=>{

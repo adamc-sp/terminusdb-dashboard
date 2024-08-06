@@ -66,7 +66,7 @@ export function App (props){
     // so he can be undefined at the start
     const isAdmin = accessControlDashboard ? accessControlDashboard.isAdmin() : false
 
-    const basename = process.env.BASE_URL ? {basename:process.env.BASE_URL} : {}
+    const basename = 'data' ? {basename:'data'} : {}
 
     return <div className="container-fluid container-background h-100">      
                 <Routes>

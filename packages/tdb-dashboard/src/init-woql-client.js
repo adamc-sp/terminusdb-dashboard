@@ -66,7 +66,7 @@ export const WOQLClientProvider = ({children, params}) => {
     const noDatabase = {"":true,"profile":true,"administrator" :true}
     const getLocation = ()=>{
         const locArr = location.pathname.split("/")
-        // const startWith = process.env.BASE_URL ? 2 : 1 
+        // const startWith = 'data' ? 2 : 1 
         const teamPath = locArr.length>1 && !noTeam[locArr[1]] ? UTILS.decodeURISegment(locArr[1]) : false
         const dataPath = locArr.length>2 && !noDatabase[locArr[2]] ? UTILS.decodeURISegment(locArr[2]) : false
         const page = locArr.length>3 ? locArr[3] : false

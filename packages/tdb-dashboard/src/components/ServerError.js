@@ -9,7 +9,7 @@ export const ServerError = (props) => {
     const serverType = clientUser ? clientUser.serverType : "TerminusCMS"
 
     const gotoMainPage= ()=>{
-        const base = process.env.BASE_URL ? `/${process.env.BASE_URL}` : "/"
+        const base = 'data' ? `/${'data'}` : "/"
         window.location.replace(`${base}`)
     }
 

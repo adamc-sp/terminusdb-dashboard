@@ -46,7 +46,7 @@ function NavigationComponent(){
             <App/>
             </WOQLClientProvider>
 }
-const basename = process.env.BASE_URL ? {basename:process.env.BASE_URL} : {}
+const basename = 'data' ? {basename:'data'} : {}
 const container = document.getElementById('root');
 const root = createRoot(container); 
 

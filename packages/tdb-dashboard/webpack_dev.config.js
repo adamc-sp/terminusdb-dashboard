@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
-module.exports = (env, argv) => ({
+module.exports = (env, _argv) => ({
   mode: 'development',
   context: __dirname,
   //devtool: 'inline-source-map',
@@ -13,20 +13,20 @@ module.exports = (env, argv) => ({
   ],
   output: {
     path: path.resolve(__dirname,  'dev'),
-    filename: 'bundle.js',
+    filename: 'dashboard/bundle.js',
     publicPath: '/'
   },
   devServer: {
     compress: true,
     historyApiFallback: true,
-    port: 3030
+    port: 3030,
   },
   plugins: [
     new HtmlWebPackPlugin({
       inject: true,
       title: env.title ? env.title : "TerminusDB",
       template: path.resolve(__dirname, './src/index.html'),
-      bundleFileName:"bundle.js"
+      bundleFileName:"dashboard/bundle.js",
     }),
     new Dotenv({path: path.resolve(__dirname, '.env'), systemvars: true}),
     new webpack.LoaderOptionsPlugin({
@@ -35,14 +35,16 @@ module.exports = (env, argv) => ({
   ],
   resolve: {
     alias: {
-      "@terminusdb/terminusdb-client": path.resolve('../../../terminusdb-client/index.js'),
+      // "@terminusdb/terminusdb-client": path.resolve('../../../terminusdb-client/index.js'),
       "@codemirror/state": path.resolve('../../node_modules/@codemirror/state/dist/index.js'),     
       'handlebars': path.resolve('../../node_modules/handlebars/dist/handlebars.js')   
     },
-    fallback: { "https": false , 
-            "fs": false,
-    "os": false,
-    "path": false},
+    fallback: {
+      "https": false ,
+      "fs": false,
+      "os": false,
+      "path": false
+    },
     extensions: [ '.js', '.jsx', '.json','.cjs'],
   },
   module: {
@@ -138,7 +140,7 @@ module.exports = (env, argv) => ({
           {
             loader: 'file-loader',
             options: {
-              outputPath: (url, resourcePath, context) => {
+              outputPath: (_url, resourcePath, context) => {
                 //if(argv.mode === 'development') {
                   const relativePath = path.relative(context, resourcePath);
                   return `/${relativePath}`;

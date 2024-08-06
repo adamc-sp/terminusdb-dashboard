@@ -13,7 +13,7 @@ export const UserMenu = ({organization}) => {
     function logoutLocalUser (evt) {
         localStorage.removeItem("Terminusdb-USER") 
         localStorage.removeItem("Terminusdb-KEY")
-        const base = process.env.BASE_URL ? `/${process.env.BASE_URL}` : "/"
+        const base = 'data' ? `/${'data'}` : "/"
         window.location.replace(`${base}`) 
     }
 
