@@ -63,7 +63,7 @@ export  function getChangesUrl(woqlClient){
 	const clientCopy = woqlClient.copy()
 	clientCopy.connectionConfig.api_extension = 'api/'
 	if(clientCopy.connectionConfig.baseServer){
-		clientCopy.connectionConfig.server = clientCopy.connectionConfig.baseServer
+		clientCopy.connectionConfig.server = localSettings.server;
 	}
 	return clientCopy.connectionConfig.dbBase("changes")
 }

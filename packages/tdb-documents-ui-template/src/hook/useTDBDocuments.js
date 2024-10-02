@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import {sortAlphabetically} from "./utils"
 import {getTotalNumberOfDocuments} from "./queryTemplates"
 
+import { localSettings } from '../../../tdb-dashboard/localSettings'
+
 export const useTDBDocuments = (woqlClient) => { 
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -95,7 +97,7 @@ export const useTDBDocuments = (woqlClient) => {
             // I need to remove the team name in the url
             // this call is for the cloud-api
             if(clientCopy.connectionConfig.baseServer){
-                clientCopy.connectionConfig.server = clientCopy.connectionConfig.baseServer
+                clientCopy.connectionConfig.server = localSettings.server;
             }
             let baseUrl = clientCopy.connectionConfig.branchBase("tables")
             if(clientCopy.db()==="_system"){

@@ -8,6 +8,8 @@ import {UTILS} from '@terminusdb/terminusdb-client'
 import { getIntrospectionQuery } from 'graphql';
 import { createGraphiQLFetcher } from '@graphiql/toolkit';
 
+import { localSettings } from "../../localSettings";
+
 export function useOpenAI(){ 
     const {apolloClient,woqlClient,clientUser} = WOQLClientObj()
 
@@ -46,7 +48,7 @@ export function useOpenAI(){
         const client = woqlClient.copy()
         client.connectionConfig.api_extension = 'api/'
         if(client.connectionConfig.baseServer){
-            client.connectionConfig.server = client.connectionConfig.baseServer
+            client.connectionConfig.server = localSettings.server;
         }
         return client.connectionConfig.dbBase(action)
     }

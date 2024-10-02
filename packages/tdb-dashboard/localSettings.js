@@ -1,5 +1,5 @@
 // const server = localStorage.getItem("terminusdb-server-override") || process.env.TERMINUSDB_SERVER || window.location.origin
-const server = `${window.location.origin}/terminusdb`;
+const server = `${window.location.origin}/terminusdb/`;
 
 //there is no default key
 //let key=  localStorage.getItem("terminusdb-key-override") || process.env.TERMINUSDB_KEY 
