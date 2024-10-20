@@ -202,7 +202,7 @@ export const useTDBDocuments = (woqlClient) => {
     // get document history
     async function getDocumentHistory(documentID, start=0, count=5) {
         try{
-            if(woqlClient && woqlClient.db()=== "_system"){
+            if(localSettings.omit_history || (woqlClient && woqlClient.db()=== "_system")){
                 setHistory([])
                 return true
             }
