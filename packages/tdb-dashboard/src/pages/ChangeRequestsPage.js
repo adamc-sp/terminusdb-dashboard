@@ -136,7 +136,7 @@ export const ChangeRequestsPage = () => {
 				<Button variant="dark" onClick={(e) => displayCRs(CLOSE)} className="btn bg-transparent border-0 text-gray">   
 					<small className="text-gray fw-bold">
 						{iconTypes[CLOSE]} 
-						<span className={`${getActiveClassName (filter, CLOSE)}`}>{countType[CLOSE]} {CLOSE}</span>
+						<span className={`${getActiveClassName (filter, CLOSE)}`}>{countType[CLOSE]} Closed</span>
 					</small>
 				</Button>
 			</Stack>
