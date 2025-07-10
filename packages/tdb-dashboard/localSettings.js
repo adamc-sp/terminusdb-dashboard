@@ -1,5 +1,6 @@
 // const server = localStorage.getItem("terminusdb-server-override") || process.env.TERMINUSDB_SERVER || window.location.origin
 const server = process.env.TERMINUSDB_DIRECT_SERVER || `${window.location.origin}/terminusdb/`;
+const baseName = process.env.TERMINUSDB_BASE_NAME || 'data/reference';
 
 //there is no default key
 //let key=  localStorage.getItem("terminusdb-key-override") || process.env.TERMINUSDB_KEY 
@@ -11,8 +12,9 @@ const omit_history = process.env.OMIT_HISTORY === 'true' || false
 
 
 export const localSettings = {
-    server : server,
+    server,
     connection_type,
-    omit_history
+    omit_history,
+    baseName,
 }
 

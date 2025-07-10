@@ -33,8 +33,7 @@ export const LoginModal = ({showModal, setShowModal, isCloseble }) => {
                     localStorage.setItem("Terminusdb-KEY",password)
                     //localStorage.setItem("Org",organization)
                     // to be review using routing
-                    const base = 'data' ? `/${'data'}` : ""
-                    window.location.replace(`${base}`) 
+                    window.location.replace(`/${localSettings.baseName}`);
                 }  
             }).catch(err=>{
                 const message = formatErrorMessage(err)

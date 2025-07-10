@@ -46,7 +46,7 @@ function NavigationComponent(){
             <App/>
             </WOQLClientProvider>
 }
-const basename = 'data' ? {basename:'data'} : {}
+const basename = { basename: localSettings.baseName };
 const container = document.getElementById('root');
 const root = createRoot(container); 
 

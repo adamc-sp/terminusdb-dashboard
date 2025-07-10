@@ -8,6 +8,8 @@ import { UTILS } from "@terminusdb/terminusdb-client"
 import {useAccessControl} from "@terminusdb/terminusdb-access-control-component"
 import {WOQLClientObj} from '../init-woql-client'
 
+import {localSettings} from "../../localSettings"
+
 export const NewTeamModal = ({show, setShow}) => {
     const {clientUser, accessControlDashboard} = WOQLClientObj()
     const {createOrganizationAndCapability, createOrganizationRemote,setError,errorMessage,loading} = useAccessControl(accessControlDashboard)
@@ -22,8 +24,7 @@ export const NewTeamModal = ({show, setShow}) => {
         createNewTeam().then(done=>{
             if(done === true){
                 setTeamCreated(true)
-                const base = 'data' ? `/${'data'}` : ""
-                window.location.replace(`${window.location.origin}${base}/${teamName}`)
+                window.location.replace(`${window.location.origin}/${localSettings.baseName}/${teamName}`)
             }
         })
     }

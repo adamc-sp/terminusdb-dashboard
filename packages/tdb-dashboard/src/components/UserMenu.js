@@ -6,6 +6,8 @@ import {AiOutlineUser, AiOutlinePoweroff,AiOutlineUsergroupAdd} from "react-icon
 import {BsPersonCheck} from "react-icons/bs"
 import {WOQLClientObj} from '../init-woql-client'
 
+import {localSettings} from "../../localSettings"
+
 export const UserMenu = ({organization}) => {
     const { clientUser,accessControlDashboard} = WOQLClientObj()
     const redirect_uri=`${window.location.origin}/`
@@ -13,8 +15,7 @@ export const UserMenu = ({organization}) => {
     function logoutLocalUser (evt) {
         localStorage.removeItem("Terminusdb-USER") 
         localStorage.removeItem("Terminusdb-KEY")
-        const base = 'data' ? `/${'data'}` : "/"
-        window.location.replace(`${base}`) 
+        window.location.replace(`/${localSettings.baseName}`);
     }
 
     const logoutWithRedirect = () =>

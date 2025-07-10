@@ -2,15 +2,14 @@ import React from "react"
 import {Col,Button} from "react-bootstrap"
 import {NoDataProductSelectedStyle} from "./constants"
 import {WOQLClientObj} from '../init-woql-client'
-import { ChangeUser } from "./ChangeUser"
+import { localSettings } from "../../localSettings"
 
 export const ServerError = (props) => {
     const {clientUser } = WOQLClientObj()
     const serverType = clientUser ? clientUser.serverType : "TerminusCMS"
 
     const gotoMainPage= ()=>{
-        const base = 'data' ? `/${'data'}` : "/"
-        window.location.replace(`${base}`)
+        window.location.replace(`/${localSettings.baseName}`);
     }
 
     let returnToMainPage = false 
